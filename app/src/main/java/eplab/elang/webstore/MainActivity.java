@@ -1,5 +1,6 @@
 package eplab.elang.webstore;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import java.io.IOException;
@@ -25,22 +26,38 @@ public class MainActivity extends AppCompatActivity {
     // URL Address
     String url = "https://www.epstore.ga/wp";
     ProgressDialog mProgressDialog;
+    //Navigation
+    Button browseBtn = findViewById(R.id.browseBtn);
+    Button descBtn = findViewById(R.id.descBtn);
+    Button inputBtn = findViewById(R.id.inputBtn);
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
-        // Locate the Buttons in activity_main.xml
-        Button browseBtn = findViewById(R.id.browseBtn);
-        Button descBtn = findViewById(R.id.descBtn);
-        Button inputBtn = findViewById(R.id.inputBtn);
+    public void changePageBrowser(View view) {
+        Intent intent = new Intent(this, browseAct.class);
+        startActivity(intent);
+    }
 
+    public void changePageInput(View view){
+        Intent intent = new Intent(this, inputAct.class);
+        startActivity(intent);
+    }
+
+    public void changePageDescription(View view){
+        Intent intent = new Intent(this, descAct.class);
+        startActivity(intent);
+    }
+
+        /*
         // Capture button click Activity
         browseBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 // Execute Browse
-                new Title().execute();
+                new browse.execute();
             }
         });
 
@@ -48,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         descBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 // Execute Description
-                new Description().execute();
+                new description().execute();
             }
         });
 
@@ -56,11 +73,12 @@ public class MainActivity extends AppCompatActivity {
         inputBtn.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 // Execute Input
-                new Logo().execute();
+                new input().execute();
             }
         });
 
     }
+
 
     // Title AsyncTask
     private class Title extends AsyncTask<Void, Void, Void> {
@@ -106,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(MainActivity.this);
-            mProgressDialog.setTitle("Android Basic JSoup Tutorial");
+            mProgressDialog.setTitle("EPStore");
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
@@ -145,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
             mProgressDialog = new ProgressDialog(MainActivity.this);
-            mProgressDialog.setTitle("Android Basic JSoup Tutorial");
+            mProgressDialog.setTitle("EPStore");
             mProgressDialog.setMessage("Loading...");
             mProgressDialog.setIndeterminate(false);
             mProgressDialog.show();
@@ -180,4 +198,5 @@ public class MainActivity extends AppCompatActivity {
             mProgressDialog.dismiss();
         }
     }
+    */
 }
