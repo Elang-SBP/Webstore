@@ -15,9 +15,9 @@ public class browseAct extends AppCompatActivity {
         setContentView(R.layout.activity_browse);
 
         //Load Webpage
-        Uri uri = Uri.parse("https://www.epstore.ga/wp");
-        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
-        startActivity(intent);
+        WebView webview = new WebView(this);
+        setContentView(webview);
+        webview.loadUrl("https://epstore.ga/wp/");
 
     }
 }
