@@ -1,10 +1,12 @@
 package eplab.elang.webstore;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 
 public class browseAct extends AppCompatActivity {
@@ -14,10 +16,18 @@ public class browseAct extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_browse);
 
-        //Load Webpage
+        //Load Webpage Using WebView
+        final Activity  activity = this;
         WebView webview = new WebView(this);
         setContentView(webview);
-        webview.loadUrl("https://epstore.ga/wp/");
+        webview.setWebChromeClient(new WebChromeClient());
+        webview.setWebViewClient(new WebViewClient() {
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                Toast.makeText(activity, "Oh no! " + description, Toast.LENGTH_SHORT).show();
+            }
+        });
+        webview.getSettings().setJavaScriptEnabled(true);
+        webview.loadUrl("https://epstore.ga/store/");
 
     }
 }

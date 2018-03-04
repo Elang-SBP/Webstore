@@ -9,9 +9,10 @@
     <Button
         android:id="@+id/browseBtn"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
         android:layout_marginBottom="30dp"
         android:layout_marginStart="25dp"
+        android:onClick="changePageBrowser"
         android:text="@string/browse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -20,6 +21,7 @@
         android:id="@+id/inputBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="changePageInput"
         android:text="@string/input"
         app:layout_constraintBaseline_toBaselineOf="@+id/browseBtn"
         app:layout_constraintHorizontal_bias="0.405"
@@ -32,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:layout_marginEnd="16dp"
+        android:onClick="changePageDescription"
         android:text="@string/get_description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
